@@ -1,0 +1,14 @@
+CREATE TABLE produto (
+	id SERIAL,
+	nome VARCHAR(40) NOT NULL,
+	descricao TEXT NOT NULL,
+	categoria VARCHAR(12) NOT NULL CHECK(categoria in( 'Cereais', 'Frutas', 'Legumes', 'Leguminosas', 'Sementes', 'Tubérculos', 'Verduras', 'Outros')),
+	preco FLOAT NOT NULL CHECK(preco > 0),
+	foto BYTEA NOT NULL,
+	opcoes VARCHAR(10) NOT NULL CHECK(opcoes in( 'Caixa', 'Quilo', 'Litro', 'Dúzia', 'Unidade')),
+	quantidadeMinima INTEGER NOT NULL CHECK(quantidadeMinima > 0),
+	quantidadeMaxima INTEGER NOT NULL CHECK(quantidadeMaxima > quantidadeMinima),
+	frete FLOAT NOT NULL CHECK(frete >= 0),
+
+	PRIMARY KEY(id)
+)
