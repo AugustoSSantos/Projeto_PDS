@@ -1,0 +1,9 @@
+<?php
+
+    function db_connect()
+    {
+        $PDO = new PDO('pgsql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8'. DB_USER, DB_PASS);
+  
+        return $PDO;
+    }
+?>
